@@ -85,6 +85,8 @@ public:
 
     void cleanupNodeState();
 
+    int isNullAddress(Address *addr);
+
     Address getJoinAddress();
 
     Address getNodeAddress(int id, short port);
@@ -93,11 +95,17 @@ public:
 
     bool isNodeAddress(Address *address);
 
+    void printAddress(Address *addr);
+
     bool isInMemberListTable(int id);
 
     MemberListEntry *getFromMemberListTable(int id);
 
     void addToMemberListTable(int id, short port, long heartbeat, long timestamp);
+
+    void removeNodeFromMemberListTable(int id, short port);
+
+    void sendJOINREQ(Address *joinaddr);
 
     void sendJOINREP(Address *destinationAddr);
 
